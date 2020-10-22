@@ -28,6 +28,12 @@ const Image = styled.img`
   width: 100%;
 `;
 
+const A = styled.a`
+  line-height: 24px;
+  color: #0089a5;
+  text-decoration: none;
+`;
+
 const Establishment = (props) => {
   const [establishment, setEstablishment] = useState([]);
   const { REACT_APP_GOOGLE_KEY } = process.env;
@@ -69,6 +75,18 @@ const Establishment = (props) => {
       ) : (
         "Não há cadastros de horário de funcionamento."
       )}
+      {establishment.geometry && (
+        <footer>
+          <A
+            target="_blank"
+            rel="nooper noreferrer"
+            href={`https://www.google.com/maps/dir/?api=1&destination=${establishment.geometry.location.lat},${establishment.geometry.location.lng} `}
+          >
+            Ver rotas no Google Maps
+          </A>
+        </footer>
+      )}
+
       <Ratings place={props.place} />
     </LeftBar>
   );
