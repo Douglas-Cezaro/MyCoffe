@@ -1,0 +1,10 @@
+//Criar projeto react web
+npx create-react-app find_my_coffe_web
+
+//Limpando projeto
+- Apagar logo;
+- Deixar a App.js sem nada
+- Apagar App.css
+
+//Instalando biblioteca da api do google
+yarn add @react-google-maps/api

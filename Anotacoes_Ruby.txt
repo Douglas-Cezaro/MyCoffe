@@ -1,0 +1,27 @@
+//Criar projeto somente API com postgres
+rails new find_my_coffe_api --api --database=postgresql
+
+// Bundle 
+Instala as bibliotecas do gemfile
+
+//Gerar Model primeiro nomeModel, depois campos
+rails g model Store name:string address:string google_place_id:string
+
+// Criar o banco de dados
+rails db:create
+
+// Criar tabelas no banco
+rails db:migrate
+
+//Abre um terminal de comandos
+rails c
+
+
+//Criar controller gerando versionado
+rails g controller api/v1/stores
+
+//Gerar rotas
+rails routes
+
+//rodar em outra porta
+rails s -p porta
