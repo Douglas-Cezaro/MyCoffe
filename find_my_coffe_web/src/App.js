@@ -16,7 +16,7 @@ const App = () => {
     setCurrentLocation();
   }, [longitude, latitude]);
 
-  // Pegar localização do brower
+  // Pegar localização do browser
   async function setCurrentLocation() {
     try {
       await navigator.geolocation.getCurrentPosition(function (position) {
@@ -35,6 +35,11 @@ const App = () => {
       setLocation(response.data.results);
     }
   }
+
+  const selectedCoffe = async (item) => {
+    const response = await EstablishmentsService.show(item);
+    setSelected(response.data.result);
+  };
   return (
     <Fragment>
       <LoadScript googleMapsApiKey={REACT_APP_GOOGLE_KEY}>
@@ -70,8 +75,12 @@ const App = () => {
             }}
           />
           ;
-          {latitude != 0 && longitude != 0 && (
-            <NearstCoffees latitude={latitude} longitude={longitude} />
+          {latitude !== 0 && longitude !== 0 && (
+            <NearstCoffees
+              latitude={latitude}
+              longitude={longitude}
+              onclickSelected={selectedCoffe}
+            />
           )}{" "}
         </GoogleMap>
       </LoadScript>

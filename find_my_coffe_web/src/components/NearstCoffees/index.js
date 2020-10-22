@@ -54,6 +54,9 @@ const NearstCoffees = (props) => {
     loadNearstStores();
   }, [props.latitude]);
 
+  function selected(store) {
+    props.onclickSelected(store);
+  }
   async function loadNearstStores() {
     const response = await StoreService.index(props.latitude, props.longitude);
     setStores(response.data);
@@ -70,8 +73,11 @@ const NearstCoffees = (props) => {
         {stores.map((store) => {
           return (
             <EstablishmentItem key={store.name}>
-              <Title>{store.name}</Title>​<Paragraph>{store.address}</Paragraph>
-              ​{store.ratings_count || 0} Opiniões
+              <Title onClick={() => selected(store.google_place_id)}>
+                {store.name}
+              </Title>
+              ​<Paragraph>{store.address}</Paragraph>​{store.ratings_count || 0}{" "}
+              Opiniões
               <ReactStars edit={false} value={store.ratings_average || 0} />
               <hr />
             </EstablishmentItem>
