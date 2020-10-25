@@ -12,7 +12,8 @@ class Store < ApplicationRecord
   			ST_Distance(lonlat, 'POINT(%f %f)') < %d
   		} % [longitude, latitude, distance_in_km * 1000])
   	}
-
+	
+	# criando metodo dentro da model, onde vai trazer a media de avaliações
     def ratings_average
       return 0 if self.ratings.empty?
       # retorna o valor da media das avaliações sempre inteiro

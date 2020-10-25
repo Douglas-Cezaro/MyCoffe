@@ -25,3 +25,11 @@ rails routes
 
 //rodar em outra porta
 rails s -p porta
+
+//Acessar api por fora do localhost
+arquivo config/environments/development
+Rails.application.configure do 
+    config.hosts.clear
+end
+usar ngrok para fazer isso
+baixar e rodar ngrok http porta do ruby

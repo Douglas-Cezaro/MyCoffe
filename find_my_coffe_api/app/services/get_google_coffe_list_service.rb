@@ -3,12 +3,14 @@ require 'json'
 
 class GetGoogleCoffeListService
 	
+	# metodo que é chamado primeiro
 	def initialize(latitude, longitude)
 		@latitude = latitude
 		@longitude = longitude
 	end
 
 
+	# metdo que faz a comunicação com a API do google
 	def call
 		# TRY CATCH CAGAO
 		begin

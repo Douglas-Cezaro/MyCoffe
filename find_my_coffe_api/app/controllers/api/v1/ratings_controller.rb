@@ -8,7 +8,7 @@ class Api::V1::RatingsController < ApplicationController
 			render json: @rating
 		end	
 	end
-
+	
 	private 
 
 	def create_rating
